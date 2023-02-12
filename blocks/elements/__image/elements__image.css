@@ -1,0 +1,9 @@
+.elements__image {
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 282px;
+    height: 282px;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}

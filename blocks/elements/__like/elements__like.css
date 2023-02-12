@@ -1,0 +1,19 @@
+.elements__like {
+    background-image: url(../../../images/like-disable.svg);
+    width: 22px;
+    height: 19px;
+    margin: 5px;
+    transition-duration: .2s;
+    border: none;
+    background-color: white;
+    padding: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.elements__like:hover {
+    opacity: 0.5;
+    width: 22px;
+    height: 19px;
+    transition-timing-function: ease-in-out;
+}
