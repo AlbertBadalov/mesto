@@ -1,0 +1,7 @@
+.elements__group {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+    margin: 20px 15px 25px 22px;
+    padding: 0;
+}

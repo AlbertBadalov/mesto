@@ -1,0 +1,9 @@
+.popup__form {
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    margin: auto;
+    text-align: center;
+    z-index: 0;
+    transition-duration: .2s;
+}
