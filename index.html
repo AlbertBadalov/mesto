@@ -40,10 +40,10 @@
     <div class="popup profile-popup">
       <div class="popup__content profile-popup__content">
         <button class="popup__close profile-popup__close" type="button"></button>
-        <form class="popup__form profile-popup__form" name="popup-content-form">
+        <form class="popup__form profile-popup__form" name="popup-content-form" novalidate>
           <h3 class="popup__title">Редактировать профиль</h3>
-          <input class="popup__input popup__input_name-profile" type="text">
-          <input class="popup__input popup__input_subname-profile" type="text">
+          <input class="popup__input popup__input_name-profile" type="text" placeholder="Имя" minlength="2" maxlength="40" required>
+          <input class="popup__input popup__input_subname-profile" type="text" placeholder="О себе" minlength="2" maxlength="200" required>
           <button class="popup__save-btn profile-popup__save-btn" type="submit">Сохранить</button>
         </form>
       </div>
@@ -52,10 +52,10 @@
     <div class="popup card-popup">
       <div class="popup__content card-popup__content">
         <button class="popup__close card-popup__close" type="button"></button>
-        <form class="popup__form card-popup__form" name="popup-content-form">
+        <form class="popup__form card-popup__form" name="popup-content-form" novalidate>
           <h3 class="popup__title popup__title_mod">Новое место</h3>
-          <input class="popup__input popup__input_name-card" type="text" placeholder="Название">
-          <input class="popup__input popup__input_link-card" type="text" placeholder="Ссылка на картинку">
+          <input class="popup__input popup__input_name-card" type="text" placeholder="Название" minlength="2" maxlength="30" required>
+          <input class="popup__input popup__input_link-card" type="utl" placeholder="Ссылка на картинку" required>
           <button class="popup__save-btn card-popup__save-btn" type="submit">Создать</button>
         </form>
       </div>
@@ -85,6 +85,7 @@
   </template>
 
   <script src="./scripts/script.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 
 </html>

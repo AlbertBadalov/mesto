@@ -45,6 +45,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+
 }
 
 function openProfilePopupForm() {
@@ -66,12 +67,23 @@ profilePopupForm.addEventListener('submit', saveEditProfileBtn);
 profileEditBtn.addEventListener("click", openProfilePopupForm);
 closeProfilePopupBtn.addEventListener("click", closeProfilePopupForm);
 
+profilePopup.addEventListener("click", function (event) {
+  if (event.target === event.currentTarget) {
+    closeProfilePopupForm();
+  }
+})
+
 function openCardPopupForm() {
   openPopup(cardPopup);
 }
 function closeCardPopupForm() {
   closePopup(cardPopup);
 }
+cardPopup.addEventListener("click", function (event) {
+  if (event.target === event.currentTarget) {
+    closeCardPopupForm();
+  }
+})
 
 addCardBtn.addEventListener("click", openCardPopupForm);
 closeCardPopupBtn.addEventListener("click", closeCardPopupForm);
@@ -131,6 +143,12 @@ function renderCards(item) {
 function closePopupImg() {
   closePopup(viewingPopup);
 }
+viewingPopup.addEventListener("click", function (event) {
+  if (event.target === event.currentTarget) {
+    closePopupImg();
+  }
+})
+
 closeViewingPopupBtn.addEventListener("click", closePopupImg);
 
 renderCards();
