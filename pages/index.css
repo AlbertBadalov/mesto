@@ -42,3 +42,5 @@
 @import url(../blocks/viewing-popup/__image/viewing-popup__image.css);
 @import url(../blocks/viewing-popup/__title/viewing-popup__title.css);
 @import url(../blocks/popup/__form/_mod/popup__form_mod.css);
+@import url(../blocks/popup/__form-error/popup__form-error.css);
+@import url(../blocks/input-error.css);

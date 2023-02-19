@@ -38,6 +38,7 @@ const titleProfile = document.querySelector(".profile__title");
 const subtitleProfile = document.querySelector(".profile__subtitle");
 const profilePopupForm = document.querySelector(".profile-popup__form");
 const addCardBtn = document.querySelector(".profile__add-button");
+const saveBtnProfilePopup = document.querySelector(".profile-popup__save-btn");
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -45,7 +46,6 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-
 }
 
 function openProfilePopupForm() {
@@ -152,3 +152,32 @@ viewingPopup.addEventListener("click", function (event) {
 closeViewingPopupBtn.addEventListener("click", closePopupImg);
 
 renderCards();
+
+
+
+
+const formPopup = document.querySelector(".popup__form");
+const formInputMassive = Array.from(formPopup.querySelectorAll(".popup__input"));
+const btnProfile = formPopup.querySelectorAll(".popup__save-btn");
+
+formInputMassive.forEach((inputElement) => {
+  const inputElementError = formPopup.querySelector(`#${inputElement.id} + .popup__form-error`);
+  inputElement.addEventListener("input", (e) => {
+    const input = e.target;
+    const inputValid = input.validity.valid;
+    inputElementError.textContent = input.validationMessage;
+
+    if (!inputValid) {
+      input.classList.add("input-error");
+    } else {
+      input.classList.remove("input-error");
+    }
+
+    // const formIsValid = formInputMassive.every(({ validity }) => validity.valid);
+    // if (formIsValid) {
+    //   btnProfile.removeAttribute("disabled");
+    // } else {
+    //   btnProfile.setAttribute("disabled", "disabled");
+    // }
+  })
+})

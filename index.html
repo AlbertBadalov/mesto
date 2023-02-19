@@ -42,8 +42,14 @@
         <button class="popup__close profile-popup__close" type="button"></button>
         <form class="popup__form profile-popup__form" name="popup-content-form" novalidate>
           <h3 class="popup__title">Редактировать профиль</h3>
-          <input class="popup__input popup__input_name-profile" type="text" placeholder="Имя" minlength="2" maxlength="40" required>
-          <input class="popup__input popup__input_subname-profile" type="text" placeholder="О себе" minlength="2" maxlength="200" required>
+          <input class="popup__input popup__input_name-profile"
+          type="text" placeholder="Имя" minlength="2" maxlength="40" required
+          title="" id="name-profile">
+          <span class="popup__form-error popup__form-error-name-profile"></span>
+          <input class="popup__input popup__input_subname-profile"
+          type="text" placeholder="О себе" minlength="2" maxlength="200" required
+          title="" id="subname-profile">
+          <span class="popup__form-error popup__form-error-subname-profile"></span>
           <button class="popup__save-btn profile-popup__save-btn" type="submit">Сохранить</button>
         </form>
       </div>
@@ -54,8 +60,14 @@
         <button class="popup__close card-popup__close" type="button"></button>
         <form class="popup__form card-popup__form" name="popup-content-form" novalidate>
           <h3 class="popup__title popup__title_mod">Новое место</h3>
-          <input class="popup__input popup__input_name-card" type="text" placeholder="Название" minlength="2" maxlength="30" required>
-          <input class="popup__input popup__input_link-card" type="utl" placeholder="Ссылка на картинку" required>
+          <input class="popup__input popup__input_name-card"
+          type="text" placeholder="Название" minlength="2" maxlength="30" required
+          title="" id="name-card">
+          <span class="popup__form-error  "></span>
+          <input class="popup__input popup__input_link-card"
+          type="utl" placeholder="Ссылка на картинку" required
+          title="" id="link-card">
+          <span class="popup__form-error popup__form-error-link-card"></span>
           <button class="popup__save-btn card-popup__save-btn" type="submit">Создать</button>
         </form>
       </div>

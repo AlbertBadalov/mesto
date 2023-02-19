@@ -16,7 +16,3 @@
     border-color: rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
 }
-
-.popup__input:invalid {
-    border-color: #FF0000;
-}
