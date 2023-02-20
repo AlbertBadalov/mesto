@@ -155,23 +155,65 @@ renderCards();
 
 
 
+const showInputError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`#${inputElement.id} + .popup__form-input-error`);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add('popup__form-input-error_active');
+};
 
-const formPopup = document.querySelector(".popup__form");
-const formInputMassive = Array.from(formPopup.querySelectorAll(".popup__input"));
-const btnProfile = formPopup.querySelectorAll(".popup__save-btn");
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`#${inputElement.id} + .popup__form-input-error`);
+  errorElement.classList.remove('popup__form-input-error_active');
+  errorElement.textContent = '';
+};
 
-formInputMassive.forEach((inputElement) => {
-  const inputElementError = formPopup.querySelector(`#${inputElement.id} + .popup__form-error`);
-  inputElement.addEventListener("input", (e) => {
-    const input = e.target;
-    const inputValid = input.validity.valid;
-    inputElementError.textContent = input.validationMessage;
+const checkInputValidity = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(formElement, inputElement);
+  }
+};
 
-    if (!inputValid) {
-      input.classList.add("input-error");
-    } else {
-      input.classList.remove("input-error");
-    }
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', function () {
+      checkInputValidity(formElement, inputElement);
+    });
+  });
+};
+
+const enableValidation = (formElement) => {
+  const formList = Array.from(document.querySelectorAll('.popup__form'));
+  formList.forEach((formElement) => {
+    formElement.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+    });
+
+    setEventListeners(formElement);
+  });
+};
+
+enableValidation();
+
+
+// const formPopup = profilePopup.elements.popup__form;
+// const formInputMassive = Array.from(formPopup.querySelectorAll(".popup__input"));
+// const btnProfile = formPopup.querySelectorAll(".popup__save-btn");
+
+// formInputMassive.forEach((inputElement) => {
+//   const inputElementError = formPopup.querySelector(`#${inputElement.id} + .popup__form-error`);
+//   inputElement.addEventListener("input", (e) => {
+//     const input = e.target;
+//     const inputValid = input.validity.valid;
+//     inputElementError.textContent = input.validationMessage;
+
+//     if (!inputValid) {
+//       input.classList.add("input-error");
+//     } else {
+//       input.classList.remove("input-error");
+//     }
 
     // const formIsValid = formInputMassive.every(({ validity }) => validity.valid);
     // if (formIsValid) {
@@ -179,5 +221,5 @@ formInputMassive.forEach((inputElement) => {
     // } else {
     //   btnProfile.setAttribute("disabled", "disabled");
     // }
-  })
-})
+//   })
+// })
