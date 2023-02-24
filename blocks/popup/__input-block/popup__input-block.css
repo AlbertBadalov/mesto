@@ -1,4 +1,7 @@
 .popup__input-block {
     display: flex;
     flex-direction: column;
+    width: 83%;
+    margin: auto;
+    position: relative;
 }

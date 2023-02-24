@@ -1,8 +1,12 @@
 .popup__form-input-error_active {
     color: red;
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
+    text-align: left;
+    position: absolute;
+    bottom: -30px;
+    min-height: 30px;
 }
