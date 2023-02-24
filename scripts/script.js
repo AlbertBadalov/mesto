@@ -55,7 +55,7 @@ function closePopup(popup) {
 const closePopupBtn = (evt) => {
   if (evt.key === "Escape") {
     const openPopup = document.querySelector(".popup_opened");
-    closePopup(popup);
+    closePopup(openPopup);
   }
 }
 
@@ -64,14 +64,6 @@ function openProfilePopupForm() {
   inputProfilePopupSubname.value = subtitleProfile.textContent;
   openPopup(profilePopup);
 }
-
-// function saveEditProfileBtn(evt) {
-//   enableValidation();
-//   evt.preventDefault();
-//   titleProfile.textContent = inputProfilePopupName.value;
-//   subtitleProfile.textContent = inputProfilePopupSubname.value;
-//   closePopup(profilePopup);
-// }
 
 function closeProfilePopupForm() {
   closePopup(profilePopup);
@@ -171,14 +163,12 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   inputElement.classList.add('popup__input_error');
   errorElement.textContent = errorMessage;
   errorElement.classList.add('popup__form-input-error_active');
-  // buttonElement.addAttribute("disabled");
 };
 
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`#${inputElement.id} + .popup__form-input-error`);
   inputElement.classList.remove('popup__input_error');
   errorElement.classList.remove('popup__form-input-error_active');
-  // buttonElement.setAttri bute("disabled", "disabled");
   errorElement.textContent = '';
 };
 
@@ -188,13 +178,11 @@ const checkInputValidity = (formElement, inputElement) => {
   } else {
     hideInputError(formElement, inputElement);
   }
-
 };
 
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
   const buttonElement = formElement.querySelector('.popup__save-btn');
-
   toggleButtonState(inputList, buttonElement);
 
   inputList.forEach((inputElement) => {
@@ -203,9 +191,6 @@ const setEventListeners = (formElement) => {
       toggleButtonState(inputList, buttonElement);
     });
   });
-
-
-
 };
 
 const enableValidation = (formElement) => {
@@ -229,14 +214,15 @@ function hasInvalidInput(inputList) {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
-
 }
 
 function toggleButtonState(inputList, buttonElement) {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add('popup__save-btn_disabled');
+    buttonElement.disabled = true;
   } else {
     buttonElement.classList.remove('popup__save-btn_disabled');
+    buttonElement.disabled = false;
   }
 }
 
