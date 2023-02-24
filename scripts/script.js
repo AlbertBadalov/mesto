@@ -40,8 +40,6 @@ const profilePopupForm = document.querySelector(".profile-popup__form");
 const addCardBtn = document.querySelector(".profile__add-button");
 const saveBtnProfilePopup = document.querySelector(".profile-popup__save-btn");
 
-
-
 function openPopup(popup) {
   document.addEventListener("keydown", closePopupBtn);
   popup.classList.add("popup_opened");
@@ -218,10 +216,10 @@ function hasInvalidInput(inputList) {
 
 function toggleButtonState(inputList, buttonElement) {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('popup__save-btn_disabled');
+    buttonElement.classList.add("popup__save-btn_disabled");
     buttonElement.disabled = true;
   } else {
-    buttonElement.classList.remove('popup__save-btn_disabled');
+    buttonElement.classList.remove("popup__save-btn_disabled");
     buttonElement.disabled = false;
   }
 }
