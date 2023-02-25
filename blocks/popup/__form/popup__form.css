@@ -6,8 +6,5 @@
     text-align: center;
     z-index: 0;
     transition-duration: .2s;
-    display: flex;
-    flex-direction: column;
     position: relative;
-    width: 430px;
 }
