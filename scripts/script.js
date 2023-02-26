@@ -13,16 +13,16 @@ const profilePopupForm = document.querySelector(".profile-popup__form");
 const addCardBtn = document.querySelector(".profile__add-button");
 
 function openPopup(popup) {
-  document.addEventListener("keydown", closePopupBtn);
+  document.addEventListener("keydown", handleEscape);
   popup.classList.add("popup_opened");
 }
 
 function closePopup(popup) {
-  document.removeEventListener("keydown", closePopupBtn);
+  document.removeEventListener("keydown", handleEscape);
   popup.classList.remove("popup_opened");
 }
 
-const closePopupBtn = (evt) => {
+const handleEscape = (evt) => {
   if (evt.key === "Escape") {
     const openPopup = document.querySelector(".popup_opened");
     closePopup(openPopup);
@@ -76,7 +76,7 @@ profilePopupForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   titleProfile.textContent = inputProfilePopupName.value;
   subtitleProfile.textContent = inputProfilePopupSubname.value;
-  closePopup(cardPopup);
+  closePopup(profilePopup);
 })
 
 elementForm.addEventListener("submit", (evt) => {
