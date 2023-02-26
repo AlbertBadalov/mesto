@@ -42,6 +42,13 @@ function enableValidation(validationConfig) {
 function setEventListeners(formElement, validationConfig) {
   const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
   const submitButton = formElement.querySelector(validationConfig.submitButtonSelector);
+
+  formElement.addEventListener('reset', () => {
+    setTimeout(() => {
+      toggleButtonState(inputList, submitButton);
+    }, 0);
+  });
+
   inputList.forEach((inputElement) => {
     toggleButtonState(inputList, submitButton);
     inputElement.addEventListener('input', function () {

@@ -80,6 +80,7 @@ profilePopupForm.addEventListener("submit", (evt) => {
 })
 
 elementForm.addEventListener("submit", (evt) => {
+
   evt.preventDefault();
   const card = createCard({ name: cardProfileInputName.value, link: cardProfileInputLink.value });
   elementsCard.prepend(card);
