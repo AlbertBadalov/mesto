@@ -29,35 +29,35 @@ function checkInputValidity(formElement, inputElement) {
   }
 };
 
-function hasInvalidInput(inputList) {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-}
-
 function enableValidation(validationConfig) {
   const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-    setEventListeners(formElement);
+    setEventListeners(formElement, validationConfig);
   });
 };
 
-function setEventListeners(formElement) {
+function setEventListeners(formElement, validationConfig) {
   const inputList = Array.from(formElement.querySelectorAll(validationConfig.inputSelector));
   const submitButton = formElement.querySelector(validationConfig.submitButtonSelector);
-  
-  toggleButtonState(inputList, submitButton);
-
   inputList.forEach((inputElement) => {
+    toggleButtonState(inputList, submitButton);
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement);
       toggleButtonState(inputList, submitButton);
     });
   });
 };
+
+enableValidation(validationConfig);
+
+function hasInvalidInput(inputList) {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+}
 
 function toggleButtonState(inputList, submitButton) {
   if (hasInvalidInput(inputList)) {
@@ -68,5 +68,3 @@ function toggleButtonState(inputList, submitButton) {
     submitButton.disabled = false;
   }
 }
-
-enableValidation(validationConfig);

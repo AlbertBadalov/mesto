@@ -116,10 +116,8 @@ function createCard(item) {
   return card;
 }
 
-function renderCards(item) {
-  const cards = initialCards.map((item) => {
-    return createCard(item);
-  })
+function renderCards() {
+  const cards = initialCards.map(createCard)
   elementsCard.prepend(...cards)
 }
 
