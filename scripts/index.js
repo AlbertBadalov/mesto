@@ -1,3 +1,7 @@
+// import Constants from "./Constants";
+// import Card from "./Card";
+// import FormValidator from "./FormValidator";
+
 const profilePopup = document.querySelector(".profile-popup");
 const cardPopup = document.querySelector(".card-popup");
 const viewingPopup = document.querySelector(".viewing-popup");
